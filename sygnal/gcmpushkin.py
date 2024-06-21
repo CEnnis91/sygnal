@@ -708,7 +708,8 @@ class GcmPushkin(ConcurrencyLimitedPushkin):
                     if not isinstance(value, str):
                         continue
                     data["content_" + attr] = value
-                del data["content"]
+                #del data["content"]
+                data["content"] = json.dumps(data["content"])
 
         data["prio"] = "high"
         if n.prio == "low":
